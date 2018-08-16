@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %} 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        <h3>Pleasde provide details of faculty.</h3>
+            <form method=POST action="{{ url_for('addfaculty') }}" onsubmit="return checkForm(this);">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                </div>
+
+                    <div class="form-group">
+                          <label for="exampleInputEmail1">Email</label>
+                         <input type="email" class="form-control" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleInputEmail1">Phone Number</label>
+                         <input type="number" class="form-control" name="phon" placeholder="Phone Number">
+                    </div>
+                    
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="Password">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

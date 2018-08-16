@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+   $('input[type="radio"]').click(function() {
+       if($(this).attr('id') == 'watch-me') {
+            $('#show-me').show();           
+       }
+
+       else {
+            $('#show-me').hide();   
+       }
+   });
+});
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form method=POST action="{{ url_for('login') }}">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="Password">
+                </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Role</label>
+              <div class="col-lg-10">
+                <div>
+                  <label class="radio-inline">
+                  <input type="radio" ng-model="role" name="role" value="admin" > 
+                  Principle  
+                  </label>
+                </div>
+                <div >
+                  <label class="radio-inline">
+                  <input id='watch-me' type="radio" ng-model="role" name="role" value="staff" > 
+                  Staff
+                  </label>
+                </div>
+                 <div id='show-me' style='display:none' class="form-group">
+                      <select class="form-control" name="classsub">
+                        <option value="cls">as class teacher</option>
+                        <option value="sub">as subject teacher</option>
+                      </select>
+                    </div>
+              </div>
+            </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
+            <br>
+            <div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

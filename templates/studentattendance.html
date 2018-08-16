@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        <form method="POST" action="{{url_for('studentattendance')}}">
+        
+         <div class="form-group">
+             <h3>Select Field</h3>
+              <div class="col-lg-10">
+              {% for i in multii %}
+                <div>
+                  <label class="radio-inline">
+                  <input type="radio" ng-model="role" name="field" value="{{ i }}" > 
+                  {{ i['standard'] }}th -  
+                  {{ i['division'] }}'s 
+                  {{ i['subject'] }}
+                  </label>
+                </div>
+                 {% endfor %}
+              </div>
+            </div>
+        <button type="submit" class="btn btn-primary btn-block">Next</button>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
